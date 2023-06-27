@@ -35,7 +35,7 @@ df3=df2.withColumn('FirstName',split('author',",").getItem(0))\
 
 df3.createOrReplaceTempView("XMLtable")
 spark.sql("select * from XMLtable").show()
-df4=df3.repartition(1)
+df4=df3.repartition(2)
 print(df4.rdd.getNumPartitions())
 #df4.withColumn("Partition_id",spark_partition_id()).groupby("Partition_id").count().show()
 #df4.withColumn("mono",monotonically_increasing_id()).withColumn("partition_id",spark_partition_id()).write.csv("C:/tmp/csv1")
