@@ -35,9 +35,6 @@ df3=df2.withColumn('FirstName',split('author',",").getItem(0))\
 
 df3.createOrReplaceTempView("XMLtable")
 spark.sql("select * from XMLtable").show()
-
-print(df3.storageLevel.useMemory)
-print(df3.rdd.getNumPartitions())
 df4=df3.repartition(1)
 print(df4.rdd.getNumPartitions())
 #df4.withColumn("Partition_id",spark_partition_id()).groupby("Partition_id").count().show()
