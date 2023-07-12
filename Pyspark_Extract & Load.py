@@ -534,4 +534,3 @@ spark.sql("insert overwrite table ext_hive_curated_table_for_DS_part_hive partit
            "from df_csv1_tv")
 
 
-
